@@ -7,8 +7,6 @@ let owner, addr1, addr2, addr3;
 let BinaryTreeTestContract;
 let instanceBinaryTreeTest;
 
-let provider = ethers.getDefaultProvider();
-
 const contractName = 'MainTest';
 
 beforeEach(async function () {
@@ -21,5 +19,9 @@ beforeEach(async function () {
 describe('Math Test', function () {
   it('testLargestSum', async function () {
     await instanceBinaryTreeTest.connect(owner).testLargestSum();
+  });
+  
+  it('testGetIndexes', async function () {
+    await instanceBinaryTreeTest.connect(owner).testGetIndexes();
   });
 });

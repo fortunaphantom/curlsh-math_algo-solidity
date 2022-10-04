@@ -9,7 +9,7 @@ contract Main {
     * Problem 1: Given an Array of ints, find the range with the largest sum
     * --> IE [-3,-2,-1,0,3,4,5,10,30,-1,-10,-30]
     */
-    function getLargestSum(int256[] memory _values) public pure returns (int256) {
+    function getLargestSum(int256[] memory _values) public pure returns (uint256, uint256, int256) {
         int256 maxSum = int256(uint256(1) << 255);
         uint256 start = 0;
         uint256 end = 0;
@@ -27,6 +27,31 @@ contract Main {
             }
         }
 
-        return maxSum;
+        return (start, end, maxSum);
+    }
+
+    /*
+    * Problem 2: Given an array of sorted ints, return the low and high indexes of a given key, return None if indexes are not found
+    * --> IE [1,1,1,1,1,1,4,5,6,7,7,7,7,10]
+    */
+    function getIndexes(int256[] memory _values, int256 key) public pure returns (uint256, uint256) {
+        uint256 n = _values.length;
+        uint256 start = n;
+        uint256 end = n;
+    
+        for (uint256 i = 0; i < n; i++) {
+            if (_values[i] == key) {
+                if (start == n) {
+                    start = i;
+                }
+                end = i;
+            }
+
+            if (start != n && _values[i] != key) {
+                break;
+            }
+        }
+
+        return (start, end);
     }
 }

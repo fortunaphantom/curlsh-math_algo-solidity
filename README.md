@@ -15,6 +15,10 @@ This runs the hardhat test command
 - Main.sol: Solutions
 - Main.t.sol: Function testing script
 
-## Problem
+## Problem 1
 Description: Given an Array of ints, find the range with the largest sum
 Solution: Main.getLargestSum() function
+
+## Problem 2
+Description: Given an array of sorted ints, return the low and high indexes of a given key, return None if indexes are not found
+Solution: Main.getIndexes() function
